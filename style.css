@@ -19,3 +19,38 @@ body{
     box-sizing: border-box;
     margin-top: 80px; /* Para evitar que el contenido se superponga con el header */
 }
+
+.container1{
+    flex: 1 1 450px;
+    min-width: 280px;
+    margin: 0.5rem;
+    border: 2px;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container2{
+    flex: 2 1 500px;
+    min-width: 300px;
+    margin: 0.5rem;
+    border: 2px;
+    padding: 1rem;
+}
+
+#datos div{
+    margin-top: 1rem;
+}
+
+#datos label {
+    display: block;
+    margin-top: 0.2rem;
+}
+
+#datos input{
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+}

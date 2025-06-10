@@ -1,0 +1,21 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /*display: flex;*/
+    align-items: center;
+}
+
+.main-layout {
+    display: flex;
+    flex-wrap: wrap; /* Para que en pantallas pequeñas los contenedores se apilen */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    /*height: 100%;            /* Ocupar toda la altura de la pantalla */
+    min-height: calc(70vh - 80px); /* Ocupar toda la altura de la pantalla menos 20px */
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 80px; /* Para evitar que el contenido se superponga con el header */
+}

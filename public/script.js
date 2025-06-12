@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Actualizar campos con la respuesta
                     document.getElementById("title1").value = data.class;
                     document.getElementById("title2").value = (data.confidence * 100).toFixed(2) + "%";
-                    document.getElementById("title3").value = "Modelo: VGG16";
+                    document.getElementById("title3").value = "Modelo: CNN + Transfer Learning";
                     document.getElementById("title4").value = "Clasificación exitosa";
                     document.getElementById("title5").value = "Dim: 224x224";
                     document.getElementById("title6").value = currentFile.name;

@@ -14,7 +14,7 @@ CORS(app)  # Permitir peticiones desde el frontend
 model = load_model('../modelo/modelo_final.h5')
 
 # Diccionario de clases
-CLASES = ['adenocarcinoma', 'large_cell_carcinoma', 'squamous_carcinoma', 'normal']
+CLASES = ['adenocarcinoma', 'large_cell_carcinoma', 'normal', 'squamous_carcinoma']
 
 @app.route('/predict', methods=['POST'])
 def predict():

@@ -1,93 +1,162 @@
-body{
-    height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap');
+
+/* =================================
+   Variables y Estilos Globales
+   ================================= */
+:root {
+    --color-negro: #1C1C1C;       /* Fondo principal oscuro */
+    --color-gris: #2E2E2E;        /* Fondo de contenedores */
+    --color-plomo: #848484;       /* Bordes y texto secundario */
+    --color-azul: #007BFF;        /* Color primario, para botones y links */
+    --color-celeste: #58ACFA;     /* Color de acento, para hover o elementos activos */
+    --color-blanco: #ffffff;       /* Color de texto principal */
+
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-navbar: 'Edu NSW ACT Foundation', cursive; /* Fuente manuscrita para navbar */
+    --radio-borde: 8px;
+    --sombra-caja: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
-    /*display: flex;*/
-    align-items: center;
 }
 
+body {
+    height: 100%;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    line-height: 1.6;
+}
+
+/* =================================
+   Layout Principal
+   ================================= */
 .main-layout {
     display: flex;
-    flex-wrap: wrap; /* Para que en pantallas pequeñas los contenedores se apilen */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center;     /* Centrado vertical */
-    /*height: 100%;            /* Ocupar toda la altura de la pantalla */
-    min-height: calc(70vh - 80px); /* Ocupar toda la altura de la pantalla menos 20px */
-    padding: 1rem;
-    box-sizing: border-box;
-    margin-top: 80px; /* Para evitar que el contenido se superponga con el header */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para mejor distribucion */
+    min-height: calc(100vh - 80px);
+    padding: 2rem;
+    margin-top: 80px;
+    gap: 2rem; /* Espacio entre contenedores */
 }
 
-.container1{
+.container1,
+.container2 {
+    background-color: var(--color-gris);
+    border: 1px solid var(--color-plomo);
+    border-radius: var(--radio-borde);
+    padding: 1.5rem;
+    box-shadow: var(--sombra-caja);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container1:hover,
+.container2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+}
+
+.container1 {
     flex: 1 1 450px;
     min-width: 280px;
-    margin: 0.5rem;
-    border: 2px;
-    padding: 1rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container2{
+.container2 {
     flex: 2 1 500px;
     min-width: 300px;
-    margin: 0.5rem;
-    border: 2px;
-    padding: 1rem;
 }
 
-#datos div{
-    margin-top: 1rem;
-}
-
-#datos label {
-    display: block;
-    margin-top: 0.2rem;
-}
-
-#datos input{
-    width: 100%;
-    padding: 0.4rem;
-    margin-top: 0.5rem;
-}
-
-.form{
+/* =================================
+   Formularios
+   ================================= */
+.form {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
-.form-g{
+.form-g {
     display: flex;
     flex-direction: column;
     flex: 1;
     min-width: 150px;
 }
 
-.custom-navbar{
+#datos div {
+    margin-top: 1rem;
+}
+
+#datos label {
+    display: block;
+    margin-bottom: 0.5rem; /* Aumentado para más espacio */
+    color: var(--color-celeste);
+    font-weight: bold;
+}
+
+#datos input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.2rem;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border: 1px solid var(--color-plomo);
+    border-radius: calc(var(--radio-borde) / 2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#datos input:focus {
+    outline: none;
+    border-color: var(--color-azul);
+    box-shadow: 0 0 0 3px rgba(3, 116, 236, 0.25);
+}
+
+/* =================================
+   Header / Navbar
+   ================================= */
+.custom-navbar {
     height: 80px;
     display: flex;
     align-items: center;
+    background-color: var(--color-gris);
+    border-bottom: 2px solid var(--color-azul);
+    padding: 0 2rem; /* Añadido padding horizontal */
+    box-shadow: var(--sombra-caja);
+    position: fixed; /* Fijar el header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 5rem;
 }
 
-.custom-navbar .navbar-brand{
+.custom-navbar .navbar-brand {
     font-size: 2rem;
+    color: var(--color-celeste);
+    font-weight: bold;
 }
 
+/* =================================
+   Componente de Imagen
+   ================================= */
 #C_image {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    border: 2px;
-    background-color: #ffffff;
-    width: auto;
+    background-color: transparent; /* El fondo del container1 ya sirve */
+    width: 100%;
     height: auto;
     max-width: 100%;
     overflow: auto;
@@ -97,9 +166,38 @@ body{
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--radio-borde);
+    border: 2px solid var(--color-plomo);
 }
 
-#buttonCI {
+/* =================================
+   Botones
+   ================================= */
+#buttonCI { /* Asumiendo que es un botón o un contenedor de botón */
     z-index: 1;
     position: relative;
+}
+
+/* Estilo genérico para botones dentro del proyecto */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: calc(var(--radio-borde) / 2);
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-celeste);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
 }
